@@ -46,6 +46,14 @@ function editContact(firstName, instanceVariable, newValue){
     }
 }
 
+function deleteContact(firstName){
+    addressBook = addressBook.filter(contact => contact.firstName != firstName);
+}
+
 editContact("Balram", "lastName", "Singh Rathore");
 editContact("Akshit", "address", "Earth");
+// console.log(addressBook);
+
+deleteContact("Balram");
+console.log("after deletion")
 console.log(addressBook);
