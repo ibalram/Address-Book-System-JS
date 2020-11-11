@@ -12,3 +12,40 @@ catch(e){
     console.error(e);
 }
 console.log(addressBook);
+
+function editContact(firstName, instanceVariable, newValue){
+    if(addressBook.some(contact => contact.firstName == firstName)){
+        let contact = addressBook.find(contact => contact.firstName == firstName);
+        switch(instanceVariable){
+            case "lastName":
+                contact.lastName = newValue;
+                break;
+            case "address":
+                contact.address = newValue;
+                break;
+            case "city":
+                contact.city = newValue;
+                break;
+            case "state":
+                contact.state = newValue;
+                break;
+            case "zip":
+                contact.zip = newValue;
+                break;
+            case "phone":
+                contact.phoneNumber = newValue;
+                break;
+            case "email":
+                contact.email = newValue;
+                break;
+            default:
+                console.log("Invalid Entry");
+        }
+    }else{
+        console.log("Not Exist");
+    }
+}
+
+editContact("Balram", "lastName", "Singh Rathore");
+editContact("Akshit", "address", "Earth");
+console.log(addressBook);
