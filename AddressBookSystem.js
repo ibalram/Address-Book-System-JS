@@ -70,6 +70,14 @@ function searchContactsByState(state){
     return addressBook.filter(contact => contact.state == state);
 }
 
+function getContactCountByCity(city){
+    return searchContactsByCity(city).reduce(counter, 0);
+}
+
+function getContactCountByState(state){
+    return searchContactsByState(state).reduce(counter, 0);
+}
+
 try{
     addContact(new Contact("Balram", "Singh", "no location","Jaipur", "Rajasthan", "301234", "91 9812345678","bal@gmail.com"));
     addContact(new Contact("Akshit", "Singh", "no location","Mumbai", "Maharashtra", "401234", "91 9912345678","akshit@gmail.com"));
@@ -90,3 +98,5 @@ editContact("Akshit", "address", "Earth");
 console.log(getCount());
 
 console.log(searchContactsByCity("Jaipur"));
+
+console.log("Count by city jaipur: "+getContactCountByCity("Jaipur"));
