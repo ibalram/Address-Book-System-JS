@@ -50,10 +50,18 @@ function deleteContact(firstName){
     addressBook = addressBook.filter(contact => contact.firstName != firstName);
 }
 
+function counter(count){
+    return ++count;
+}
+function getCount(){
+    return addressBook.reduce(counter, 0);
+}
+
 editContact("Balram", "lastName", "Singh Rathore");
 editContact("Akshit", "address", "Earth");
 // console.log(addressBook);
 
-deleteContact("Balram");
-console.log("after deletion")
-console.log(addressBook);
+// deleteContact("Balram");
+// console.log("after deletion")
+// console.log(addressBook);
+console.log(getCount());
