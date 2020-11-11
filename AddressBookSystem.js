@@ -4,15 +4,6 @@ console.log("Welcome Address Book System");
 
 let addressBook = new Array();
 
-try{
-    addressBook.push(new Contact("Balram", "Singh", "no location","Jaipur", "Rajasthan", "301234", "91 9812345678","bal@gmail.com"));
-    addressBook.push(new Contact("Akshit", "Singh", "no location","Mumbai", "Maharashtra", "401234", "91 9912345678","akshit@gmail.com"));
-}
-catch(e){
-    console.error(e);
-}
-console.log(addressBook);
-
 function editContact(firstName, instanceVariable, newValue){
     if(addressBook.some(contact => contact.firstName == firstName)){
         let contact = addressBook.find(contact => contact.firstName == firstName);
@@ -53,9 +44,33 @@ function deleteContact(firstName){
 function counter(count){
     return ++count;
 }
+
 function getCount(){
     return addressBook.reduce(counter, 0);
 }
+
+function isExist(firstName){
+    return addressBook.some(contact => contact.firstName == firstName);
+}
+
+function addContact(contact){
+    if (!isExist(contact.firstName)){
+        addressBook.push(contact);
+    }
+    else{
+        console.log("Already Exist");
+    }
+}
+
+try{
+    addContact(new Contact("Balram", "Singh", "no location","Jaipur", "Rajasthan", "301234", "91 9812345678","bal@gmail.com"));
+    addContact(new Contact("Akshit", "Singh", "no location","Mumbai", "Maharashtra", "401234", "91 9912345678","akshit@gmail.com"));
+}
+catch(e){
+    console.error(e);
+}
+console.log(addressBook);
+
 
 editContact("Balram", "lastName", "Singh Rathore");
 editContact("Akshit", "address", "Earth");
