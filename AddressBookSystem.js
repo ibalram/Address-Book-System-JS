@@ -88,6 +88,36 @@ function sortEntriesByFirstName(){
     });
 }
 
+function sortEntriesByCity(){
+    addressBook.sort( function(contact1, contact2){
+        let x = contact1.city.toLowerCase();
+        let y = contact2.city.toLowerCase();
+        if (x<y) return -1;
+        if (x>y) return 1;
+        return 0;
+    });
+}
+
+function sortEntriesByState(){
+    addressBook.sort( function(contact1, contact2){
+        let x = contact1.State.toLowerCase();
+        let y = contact2.state.toLowerCase();
+        if (x<y) return -1;
+        if (x>y) return 1;
+        return 0;
+    });
+}
+
+function sortEntriesByZip(){
+    addressBook.sort(function(contact1, contact2){
+        let x = contact1.zip.toLowerCase();
+        let y = contact2.zip.toLowerCase();
+        if (x<y) return -1;
+        if (x>y) return 1;
+        return 0;
+    });
+}
+
 try{
     addContact(new Contact("Balram", "Singh", "no location","Jaipur", "Rajasthan", "301234", "91 9812345678","bal@gmail.com"));
     addContact(new Contact("Akshit", "Singh", "no location","Mumbai", "Maharashtra", "401234", "91 9912345678","akshit@gmail.com"));
@@ -112,4 +142,7 @@ console.log(searchContactsByCity("Jaipur"));
 console.log("Count by city jaipur: "+getContactCountByCity("Jaipur"));
 
 sortEntriesByFirstName();
+console.log(addressBook);
+
+sortEntriesByCity();
 console.log(addressBook);
