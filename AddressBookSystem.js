@@ -90,4 +90,3 @@ editContact("Akshit", "address", "Earth");
 console.log(getCount());
 
 console.log(searchContactsByCity("Jaipur"));
-console.log(searchContactsByState("Maharashtra"));
