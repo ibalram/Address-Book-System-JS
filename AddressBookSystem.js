@@ -78,6 +78,16 @@ function getContactCountByState(state){
     return searchContactsByState(state).reduce(counter, 0);
 }
 
+function sortEntriesByFirstName(){
+    addressBook.sort( function(contact1, contact2){
+        let x = contact1.firstName.toLowerCase();
+        let y = contact2.firstName.toLowerCase();
+        if (x<y) return -1;
+        if (x>y) return 1;
+        return 0;
+    });
+}
+
 try{
     addContact(new Contact("Balram", "Singh", "no location","Jaipur", "Rajasthan", "301234", "91 9812345678","bal@gmail.com"));
     addContact(new Contact("Akshit", "Singh", "no location","Mumbai", "Maharashtra", "401234", "91 9912345678","akshit@gmail.com"));
@@ -100,3 +110,6 @@ console.log(getCount());
 console.log(searchContactsByCity("Jaipur"));
 
 console.log("Count by city jaipur: "+getContactCountByCity("Jaipur"));
+
+sortEntriesByFirstName();
+console.log(addressBook);
